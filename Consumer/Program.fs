@@ -21,7 +21,7 @@ let ConsumerTask (host_adrs : string, port : uint16, queue_name : string) =
         conn.Start()
         
         while true do 
-            let message = consumer.Receive() :> ITextMessage
+            let message = consumer.Receive() :?> ITextMessage
             if message <> null then
                 printfn "%s" (message.Text)
    }
